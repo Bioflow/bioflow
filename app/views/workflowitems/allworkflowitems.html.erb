@@ -1,0 +1,29 @@
+
+
+<!-- THIS IS NOT ACTUAL VIEW  
+	THAT ONE IS CALLED SHOW.HTML.ERB -->
+	
+	
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "workitemandinput/LoadWorkflowItems.js" %>
+<% end %>
+
+
+<div class="ui-layout-north">
+	<%= render 'layouts/workflowitemsaccordion' %>
+</div>
+<div class="ui-layout-west">West
+</div>
+<div class="ui-layout-center" id="rightPanel" style="background-color: black">
+	<font color="white">Center
+	<h1>Listing workflowitems</h1>
+	<ul id="workflow_list">
+	<% @workflowitems.each do |c| %>
+	<li><%= c.name %>	</li>
+	<% end %>
+	</ul>
+	</font>
+</div>
+<div class="ui-layout-east">East</div>
+<div class="ui-layout-south">South</div>

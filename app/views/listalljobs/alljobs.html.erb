@@ -1,0 +1,43 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "jqgrid/i18N/grid.locale-en.js" %>
+  <%= javascript_include_tag "jqgrid/jquery.jqGrid.min.js" %>
+  <%= javascript_include_tag "jqgrid/LoadGrid.js" %>
+  
+  
+<% end %>
+
+<html>
+
+
+<body onload="init()"> </body>
+
+<div class="ui-layout-north">
+			<%= render 'workflow_item/user_details' %>
+		</div>
+<div class="ui-layout-west"	>
+			
+		
+				<div>
+						<div id="left" style="display: inline-block;">
+						   	<table id="list2"></table>
+							<div id="pager2"></div>
+						</div>
+				</div>	
+			
+	</div>
+	
+<div class="ui-layout-center center-panel" >
+	
+	
+	<div id="detailspanel" style="max-width: 80%;overflow:auto">
+	Click on a job to see its details.						
+					</div>
+				
+</div> 
+
+
+
+	
+	
+</body>	
+</html>

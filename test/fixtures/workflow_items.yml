@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  summary: MyString
+  totalinputs: 1
+  totaloutputs: 1
+  category: MyString
+  isparent: false
+  parent: MyString
+  itemid: MyString
+
+two:
+  name: MyString
+  summary: MyString
+  totalinputs: 1
+  totaloutputs: 1
+  category: MyString
+  isparent: false
+  parent: MyString
+  itemid: MyString

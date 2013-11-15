@@ -1,0 +1,51 @@
+fieldset .field {
+	display:inline-block;
+	text-align:right;
+	width:182px;
+	float:left;
+	font-weight:bold;
+	margin-right:10px;
+	
+}
+
+.field {
+	display:inline-block;
+	text-align:right;
+	width:200px;
+	float:left;
+	font-weight:bold;
+	margin-right:10px;	
+}
+
+.epOverlay {
+	position:absolute;
+	top:50px;
+}
+
+.categoryform {
+	width:126px;
+	height:25px;
+	border:2px solid #474747;
+}
+.formInputstyle {
+	width:250px;
+	height:25px;
+	border:2px solid #474747;
+}
+.formInputstyle_2 {
+	width:220px;
+	height:25px;
+	border:2px solid #474747;
+	margin:2px;
+}
+.somebg {
+	margin:5px;
+	width:480px;
+	background: #E8E8E8;
+	color:black;
+	border:2px solid #474747;
+	padding:10px;
+}
+fieldset {
+	margin:10px;
+}

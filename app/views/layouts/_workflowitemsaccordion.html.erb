@@ -1,0 +1,91 @@
+<%
+categories = Array.new
+i = 0;
+isDivOpen = false;
+
+%>
+
+<div class="togglestuff" > 
+
+
+<% @allworkitems.each do |c| %>
+		
+		<%if categories.include?(c.category) %>
+			<% i = i + 1 %>
+				<div id=<%= c.itemid %>  class="markerForDraggable togglepanel">
+					<div class="draggableWidget "  style="height:45px;align:center">
+						<div class="verticalalign wrapwords somestyles" >
+        							
+        							<div  class="leftwidget"><%= c.name %></div>
+        						
+        							
+        						</div>
+        						<!-- <div style=" top:10px;position:relative;height:60px;float:left;left:20px;">
+        							<em style="font-size:10px;float:left;top:10px;position:relative;"> &nbsp;<%= c.summary %></em>
+        						</div> -->
+        						
+        						<div class="widgetsummary">
+        							
+        							
+        							<%= c.summary %>
+        							
+        							<!--<div style="text-align:center;font-size:10px;"><em > &nbsp;<%= c.summary %></em></div> -->
+        							
+        						</div>
+					</div>
+    			</div>
+		<%else %>
+			
+			<% if isDivOpen %>
+				</div>
+			<%end %>
+			
+			<div id=<%=  c.category %> >
+				
+			<% isDivOpen = true %>
+			<div id="letssee" class="toggletrigger">
+					<center>
+					
+						<span  class="verticalalign"><%= c.category %></span>
+						<span  class="verticalalign" id="plussign" style="float:right;padding-right:10px;font-size: 2em;top:5px;" > + </span>
+					</center>
+			</div>  
+			
+			
+			<% i = i + 1 %>
+			<div id=<%= c.itemid %> class="markerForDraggable togglepanel"   >
+				<div class="draggableWidget"  style="height:75px;align:center;position:relative;">
+							
+        						<div class="verticalalign wrapwords somestyles" >
+        							<div  class="leftwidget"><%= c.name %></div>
+        						
+        							
+        						</div>
+        						<div class="widgetsummary">
+        							
+        							<span><%= c.summary %></span>
+        							
+        							
+        							<!--<div style="text-align:center;font-size:10px;"><em > &nbsp;<%= c.summary %></em></div> -->
+        							
+        						</div>
+        						
+        						
+        					
+						
+    			</div>
+    		</div>
+			<% categories << c.category %>
+			
+		<%end %>
+		
+		
+<% end %>
+
+	</div>
+	
+</div>
+
+
+
+	

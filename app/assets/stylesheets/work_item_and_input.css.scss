@@ -1,0 +1,699 @@
+// Place all the styles related to the WorkItemAndInput controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//$background-center : #0085b2;
+$background-center : #e8e8e8;
+//$background-otherpanels : #0099EE;
+$background-otherpanels : #e8e8e8;
+//dull glazed look
+$backgroundwidget-content : #474747;
+//brighter
+//$backgroundwidget-content : #333;
+$endpointcolor : #999;
+$button-background : #474747;
+
+$togglepanel-background : #474747;
+//$button-background:#333;
+$connectorBorder:#b1b1b1;
+
+
+$connectorcolor:#C0C0C0;
+
+/* Reset */
+body,img,p,h1,h2,h3,h4,h5,h6,ul,ol {margin:0; padding:0; list-style:none; border:none;}
+/* End Reset */
+
+body {font-size:0.8em; font-family:Arial,Verdana,Sans-Serif; background: black;}
+
+a {color:white;}
+
+
+
+/* Colours */
+.color-yellow { background: yellow; }
+.color-red    { background:red;     }
+.color-blue   { background:#148ea4; }
+.color-white  { background:#dfdfdf; }
+.color-orange { background:#f66e00; }
+.color-green  { background:#8dc100; }
+.color-yellow h3,.color-white h3,.color-green h3  { color:#000;  }
+.color-red h3,.color-blue h3,.color-orange h3     { color:#FFF;  }
+/* End Colours */
+
+.eastpanel {
+  width:200px;
+  padding:10px;
+  background: $background-otherpanels;
+}
+
+.center-panel {
+  background: $background-center;
+}
+
+.widget-content{
+    background: $backgroundwidget-content  repeat-x;
+    margin-top:5px;
+    padding: 5px;
+    color: #DDD;
+    
+    line-height: 1.2em;
+    /*overflow: hidden;*/
+    min-height:60px;
+    text-align: center;
+    
+    -moz-border-radius-bottomleft: 2px;
+    -moz-border-radius-bottomright: 2px;
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-topright: 2px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+  
+  
+}
+.dragged_obj {
+    background: $backgroundwidget-content;
+    margin-top:5px;
+    padding: 5px;
+    color: #DDD;
+    vertical-align:middle;
+    line-height: 1.2em;
+    /*overflow: hidden;*/
+    min-height:50px;
+    min-width:50px;
+    text-align: center;
+    
+    -moz-border-radius-bottomleft: 2px;
+    -moz-border-radius-bottomright: 2px;
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-topright: 2px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+}
+
+.workAndInput_New{
+  width: 145px;
+  padding:10px 10px 10px 10px;
+  height: 130px;
+  z-index:0;
+  border: 1px solid darkgray;
+  /*margin:3px 3px 3px 3px;
+  
+  -moz-border-radius-bottomleft: 2px;
+    -moz-border-radius-bottomright: 2px;
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-topright: 2px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;*/
+  background: $background-center;
+  position:absolute;
+}
+
+
+.workDiv{
+  width: 115px;
+  padding:10px 10px 10px 10px;
+  /*border: 3px solid green;*/
+  margin:3px 3px 3px 3px;
+  height: 100px;
+  background:red;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -moz-border-radius-topleft: 2px;
+  -moz-border-radius-topright: 2px;
+  -webkit-border-bottom-left-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+.inputItem {
+  
+  border-color: red red red transparent;
+  border-style: solid;
+  border-width: 10px;
+  height: 0;
+  width: 0;
+  position: absolute;
+  bottom: 25px;
+  left: -20px;
+}
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+  
+
+
+.transparent_endpoint {
+  height:10px;
+  wieght:10px;
+  border:3px solid red;
+  border-color:red;
+  border-style:solid;
+  color:red;  
+  zoom:1;
+  filter:alpha(opacity=0);
+  opacity:0.0;
+}
+  
+  
+
+
+
+  
+  
+  
+.circle_ash {
+  width  : 20px;
+  height : 20px;
+  -moz-border-radius-bottomleft: 20px;
+  -moz-border-radius-bottomright: 20px;
+  -moz-border-radius-topleft: 20px;
+  -moz-border-radius-topright: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;  
+  /*border:1px solid red;
+  border-bottom : 1px solid green;
+  border-left : 1px solid green;
+  border-right : 1px solid green;
+  border-top : none;*/
+  position:absolute;
+  top:-4px;
+  left:10px;
+  background: black;
+
+}
+
+
+.rect_input_top {
+  width  :40px;
+  height : 20px; 
+  /*border:1px solid green;*/
+  position : absolute;
+  top:-7px;
+  left:63px;
+  background: $endpointcolor;
+}
+
+.rect_input_left {
+  height    : 40px;
+  width     : 20px; 
+  /*border:1px solid green;*/
+  position  : absolute;
+  top       : 55px;
+  left      : -7px;
+  background: $endpointcolor;
+}
+
+.rect_input_bottomleft_1 {
+  height: 23px;
+  width: 21px;
+  position: absolute;
+  top: 120px;
+  left: -8px;
+  background: $endpointcolor;
+}
+
+
+.rect_input_bottomleft_2 {
+  height: 19px;
+  width: 30px;
+  position: absolute;
+  top: 132px;
+  left: -8px;
+  background: $endpointcolor;
+}
+
+.rect_input_topleft_1 {
+  height: 23px;
+  width: 21px;
+  position: absolute;
+  top: 3px;
+  left: -8px;
+  background: $endpointcolor;
+}
+
+
+.rect_input_topleft_2 {
+  height: 19px;
+  width: 30px;
+  position: absolute;
+  top: -5px;
+  left: -8px;
+  background: $endpointcolor;
+}
+
+.rect_output_right {
+  width  : 20px;
+  height : 40px; 
+  /*border:1px solid green;*/
+  position : absolute;
+  top: 55px;
+  right:-1px;
+  background: $endpointcolor;
+}
+.rect_output_topright_1 {
+  height: 19px;
+  width: 30px;
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  z-index:-1;
+  background: $endpointcolor;
+}
+.rect_output_topright_2 {
+  height: 19px;
+  width: 30px;
+  position: absolute;
+  top: 5px;
+  right: -8px;
+  z-index:-1;
+  background: $endpointcolor;
+}
+.rect_output_bottomright_1 {
+  height: 19px;
+  width: 30px;
+  position: absolute;
+  top: 132px;
+  right: -8px;
+  z-index:-1;
+  background: $endpointcolor;
+}
+.rect_output_bottomright_2 {
+  height: 19px;
+  width: 30px;
+  position: absolute;
+  top: 120px;
+  right: -8px;
+  z-index:-1;
+  background: $endpointcolor;
+}
+.rect_output_bottomcenter {
+  width  : 40px;
+  height : 20px; 
+  /*border:1px solid green;*/
+  position : absolute;
+  top: 132px;
+  left:63px;
+  z-index:-1;
+  background: $endpointcolor;
+}
+
+
+.circle_output_right {
+  width  : 20px;
+  height : 20px;
+  -moz-border-radius-bottomleft: 20px;
+  -moz-border-radius-bottomright: 20px;
+  -moz-border-radius-topleft: 20px;
+  -moz-border-radius-topright: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;  
+  position:absolute;
+  top:10px;
+  left:10px;
+  background: #4a4a4a;
+
+}
+.hover {
+  box-shadow:2px 2px 19px 05px white;
+      
+} 
+
+
+
+
+.dropHover { border:1px dotted red; }
+.dragActive { border:2px dotted orange; }
+
+
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix {display: inline-block;}
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+
+
+
+
+
+
+/*****************/
+
+
+
+
+
+.left, .right{
+    display: inline-block;
+}
+.left 
+{
+    color: Green;
+    border:1px solid Green;
+ 
+}
+
+.right 
+{
+    color: Blue;
+    border:1px solid Blue;
+}
+
+
+.formstyle {
+  display: inline-block;
+  width:70px;
+  text-align:right;
+  color:#555; 
+}
+
+h3.eastaccordionheader {
+  background:#555;
+  font-family: courier;
+}
+.eastaccordioncontent {
+  background:silver;
+  overflow:hidden;
+  color:#555;
+}
+
+
+.buttonstyles {
+  background: $button-background;
+  min-width:100px;
+  height:35px;
+  color:white;
+  font-size:20px;
+  
+  
+}
+.mybutton:disabled {
+  background: #c0c0c0;
+  
+  
+}
+
+
+.mybutton 
+{        
+  display: inline-block;
+  white-space: nowrap;
+  background-color: $button-background;
+  //background-image: -webkit-gradient(linear, left top, left bottom, from(#a7a7a7), to(#c0c0c0));
+  //background-image: -webkit-linear-gradient(top, #e7e7e7, #c0c0c0);
+  //background-image: -webkit-linear-gradient(top, #333, #0d0d0d);
+  
+  //6e6e6e
+  //background-image: -moz-linear-gradient(top, #eee, #ccc);
+  //background-image: -ms-linear-gradient(top, #eee, #ccc);
+  //background-image: -o-linear-gradient(top, #eee, #ccc);
+  //background-image: linear-gradient(top, #eee, #ccc);
+  //filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+  border: 0px solid $connectorBorder !important;
+  padding: 10px;
+  margin: 0.5em;
+  font:  1.5em Arial, Helvetica;
+  text-decoration: none;
+  color: #ffffff;
+ // text-shadow: 0 1px 0 rgba(255,255,255,.8);
+  -moz-border-radius: .2em;
+  -webkit-border-radius: .2em;
+  border-radius: 5px;
+  //-moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+  //-webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+  -moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+  -webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+  //box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+}
+
+.mybuttonsize {
+  min-height: 30px;
+  min-width: 100px;
+  text-align:center;
+}
+
+.mybutton:hover
+{
+  //background-color: #404040; 
+  color:#f1f1f1;
+  border:1px solid black;       
+  //background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#ddd));
+  //background-image: -webkit-linear-gradient(top, #fafafa, #ddd);
+  //background-image: -moz-linear-gradient(top, #fafafa, #ddd);
+  //background-image: -ms-linear-gradient(top, #fafafa, #ddd);
+  //background-image: -o-linear-gradient(top, #fafafa, #ddd);
+  //background-image: linear-gradient(top, #fafafa, #ddd);
+  //filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');        
+}
+
+.mybutton:active
+{
+  -moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+  -webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+  //box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+  position: relative;
+  top: 1px;
+}
+
+.mybutton:focus
+{
+  outline: 0;
+  //background: #fafafa;
+}    
+
+.mybutton:before
+{
+  background: #ccc;
+  background: rgba(0,0,0,.1);
+  float: left;        
+  
+  text-align: center;
+  font-size: 1.5em;
+  margin: 0 1em 0 -1em;
+  padding: 0 .2em;
+  -moz-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+  -webkit-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+  box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+  -moz-border-radius: .15em 0 0 .15em;
+  -webkit-border-radius: .15em 0 0 .15em;
+  border-radius: .15em 0 0 .15em;
+        pointer-events: none;        
+}
+
+/* Hexadecimal entities for the icons */
+
+
+
+.play:before
+{
+  content: "\25B6";
+}
+
+.togglestuff {
+  
+  
+}
+
+.togglepanel {
+  background:$connectorcolor;
+  -webkit-box-shadow: 0 0 2px 2px rgba(0,0,0,0.7) inset;
+  height:80px;
+  color:#474747;
+  position:relative;
+  width:250px;
+}
+
+.toggletrigger {
+  -webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+  background:$togglepanel-background;
+  height:40px;
+  color:white;
+  width:250px;
+  margin-top:5px;
+}
+.verticalalign {
+  position:relative;
+  top:10px;
+}
+
+.somestyles {
+  -webkit-border-bottom-left-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  width:200px;
+  height:30px;
+  top:15px;
+  left:20px;
+  float:left;
+  border:1px dashed #333;
+  background:#9a9a9a;
+}
+
+.wrapwords {
+  white-space: pre-wrap;      /* CSS3 */       
+  white-space: -moz-pre-wrap; /* Firefox */        
+  white-space: -pre-wrap;     /* Opera <7 */       
+  white-space: -o-pre-wrap;   /* Opera 7 */        
+  word-wrap: break-word; 
+}
+
+.leftwidget {
+  top:6px;
+  text-align:center;
+  left:10px;
+  height:20px;
+  position:absolute;
+  word-wrap: break-word;
+  width:180px;
+}
+
+.widgetsummary {
+  top:45px;
+  position:absolute;
+  left:30px;
+  height:30px;
+  text-align:center;
+  width:180px;
+  margin-top:5px;
+}
+
+.output-table-style {
+   
+   width:100%;
+   border:2px solid #474747;
+   //background:#9A9A9A;
+   background:#B1B1B1;
+   -webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+   padding : 10px;
+   table-layout:fixed;
+ } 
+ 
+.output-table-cell-left {
+  font-weight: bold;
+  padding: 5px;
+  white-space: nowrap;
+  width:150px;
+}
+
+.output-header {
+  background:#474747;
+  color:white;
+  border:1px solid #B1B1B1;
+  padding:15px;
+  margin-top:15px;
+  display:inline-block;
+}
+
+.output-table-cell-right {
+  padding: 5px;
+  word-wrap:break-word;
+  white-space:pre;
+  width:100%;
+}
+
+.widget_button {
+  position:absolute;
+  top:160px;
+  background: #494949;
+  color:white;
+  height:25px;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -moz-border-radius-topleft: 2px;
+  -moz-border-radius-topright: 2px;
+  -webkit-border-bottom-left-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
+  
+}
+
+.notifications_table {
+
+  background:#B1B1B1;
+  width:100%;
+  border-collapse:collapse;
+  
+}
+.notifications_box:hover {
+  cursor:move;
+}
+.notifications_box {
+  overflow:auto;
+  position:absolute;
+  bottom:50px;
+  right:10px;
+  height:200px;
+  width:300px ;
+  z-index:1;
+  border:3px solid rgba(0,0,0,.5);
+  box-shadow:0px 5px 15px #333;
+  padding:10px;
+  margin:0px;
+  z-index:100;
+  
+}
+#resizable_handle {
+  top : -5px;
+  right: -5px;
+}
+
+
+.combo_style {
+  background:#474747;
+  color:#E8E8E8;
+  width:150px;
+  height:30px;
+}
+
+
+.joboutputpanel {
+ width:500px; 
+}
+
+.overlaylabel{
+  display:none;
+  margin-top:15px;
+  /*font-color:yellow;
+  border:1px solid red;
+  position:absolute;
+  top:100px;
+  
+  margin-right:30px;
+  margin-top:30px;*/
+  
+}
+
+.runasstyle {
+  height:40px;
+}
+
+

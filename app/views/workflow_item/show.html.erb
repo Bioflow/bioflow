@@ -1,0 +1,133 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "workitemandinput/workitemandinput.js" %>
+  <%= javascript_include_tag "workitemandinput/Utility.js" %>
+  <%= javascript_include_tag "workitemandinput/LoadWorkflowItems.js" %>
+  <!--<%= javascript_include_tag "workitemandinput/WorkerObject.js" %>-->
+  <%= javascript_include_tag "jqgrid/LoadGrid.js" %>
+<% end %>
+
+<div class="ui-layout-east"	>
+	
+	<button class="mybutton mybuttonsize" id="closeoutput" onclick="showOrHideOutput()">Close</button>
+	
+	<button class="mybutton mybuttonsize" id="refreshoutput" onclick="viewCurrentJobOutput()">Refresh</button>
+	
+	<div id="outputdiv" >
+		 
+		
+		</div>
+
+</div>
+
+<div class="ui-layout-center">
+		<div class="ui-layout-north">
+			<%= render 'workflow_item/user_details' %>
+			</div>
+		<div class="ui-layout-west">
+			<div id="div30" class="eastpanel">
+				<div id="workflow_intro" style="width:250px;">
+					<center>
+						<div id="notifications_header" style="background:#474747;color:white;border:1px solid #B1B1B1;padding:10px;width:120px;">
+								Available workflows
+							</div>
+					</center>
+				</div>
+				
+				<%= render 'layouts/workflowitemsaccordion' %>
+			</div>
+		</div>
+		<div class="ui-layout-center center-panel" id="rightPanel">
+		
+				<div id="content-inner" style="margin-left: 10px;display:block;">
+					
+					<button class="mybutton mybuttonsize" id="runbutton" onclick="runbuttonclicked()">Run</button>
+					
+					 <select class="mybutton runasstyle" onchange="distributed_run(this.value)">
+					 	<option value='' disabled='disabled'  selected>Run On</option>
+						<%
+						for server in @servers %>
+						
+						<option> <%= server %>	</option>
+						<%
+						end
+						
+						%>
+					</select>
+						
+					<!--- <button class="mybutton mybuttonsize"  id="clearbutton" onclick="clearbuttonclicked()">Clear Session</button>
+					
+					<button class="mybutton mybuttonsize"  id="testJobbutton" onclick="testjobclicked()">testjobclicked</button>	
+					
+					
+					<button class="mybutton mybuttonsize"  id="startnewjob" onclick="startnewjob()">Start new Job</button>
+						
+					<button class="mybutton mybuttonsize"  id="savethisjob" onclick="saveThisjob()">Save Me</button>
+					
+					
+					
+					
+					<button class="mybutton mybuttonsize"  id="commandline" onclick="createCommandline()">Show Commands</button>
+					-->
+					<button class="mybutton mybuttonsize"  id="saveuicoordinates" onclick="showFormForJobParams()">Save</button>
+					<!--
+					<button class="mybutton mybuttonsize"  id="restorejob1261" onclick="restorejob1261()">restorejob1261</button>
+					
+					<button class="mybutton mybuttonsize"  id="restorejob" onclick="restorejob()">Restore</button>
+					-->
+					<button class="mybutton mybuttonsize"  id="commandline" onclick="showOrHideOutput()">View Output</button>
+					
+					<!--<button class="mybutton mybuttonsize"  id="commandline" onclick="viewCurrentJobOutput_2086()">View Output - 2086</button>
+					-->
+					
+					<div id="jobcheck" style="height:20px;border:1px solid black;position:absolute;right:100px;top:100px;padding:10px;background:#B1B1B1" >
+						JobStatus : <label id="mainjobstatus">Pending </label>
+					</div>
+					
+				
+				</div>
+				
+				
+				
+				
+		</div>
+
+
+
+		<div class="ui-layout-east">
+			
+			
+		
+			<div id="job_nameAndSummary" style="background:#B1B1B1;padding:10px;border-radius: 5px;border:2px solid #474747;color:black !important"> </div>
+		
+		
+			<%= render 'layouts/formsaccordion' %>
+			
+			
+			
+			
+			
+		</div>
+
+</div>
+
+
+
+
+<div id="notificationscontainer" class="notifications_box">
+			<div id="notifications_header" style="background:#474747;color:white;border:1px solid #B1B1B1;padding:10px;">
+				Notifications
+			</div>
+			<div id="notifications">
+			</div>
+	</div>
+	
+	
+<div class="ui-layout-south">
+
+		<div id="error_notify" style="color:red;background:#B1B1B1;border:1px solid #B1B1B1;padding:10px;">
+				 &nbsp;
+			</div>
+</div>
+
+
+

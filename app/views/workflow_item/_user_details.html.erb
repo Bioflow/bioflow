@@ -1,0 +1,23 @@
+<div id="xx" style="background:#474747;display:inline-block;width:100px;height:20px;border-radius:5px;text-align: center;padding:5px;float:right;">
+			
+			<div id="user_nav">
+  				<% if user_signed_in? %>
+    				<!-- Signed in as <%= current_user.email %>. Not you?
+    				<%= link_to "Sign out", destroy_user_session_path, :method => :delete %> -->
+    				<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  				<% else %>
+    				<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  				<% end %>
+			</div>
+			
+
+</div>
+<div id="xx" style="background:#474747;display:inline-block;width:100px;height:20px;border-radius:5px;text-align: center;padding:5px;float:right;margin-right:20px;"
+	onclick="window.location='/'">
+			
+			<div id="user_nav">
+  				<font color="white">Home</font>
+			</div>
+			
+
+</div>

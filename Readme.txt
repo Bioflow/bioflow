@@ -1,0 +1,2 @@
+1.9.3-p194 :001 > workflowitem = WorkflowItem.new(name: "Twin Input", summary: "I need two inputs", totalinputs: 2, totaloutputs: 1, category: "dua
+l input", isparent: false, parent: "root", itemid:"twininput");

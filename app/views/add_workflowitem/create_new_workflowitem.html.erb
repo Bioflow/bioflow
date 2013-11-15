@@ -1,0 +1,248 @@
+<% content_for :javascript_includes do %>
+	<%= javascript_include_tag "createnewworkflowitem/create_new_workflow_item.js" %>
+	<%= javascript_include_tag "tooltip/jquery.tools.min.js" %>
+	<%= javascript_include_tag "workitemandinput/LoadWorkflowItems.js" %>
+	<!--<%= javascript_include_tag "workitemandinput/workitemandinput.js" %>
+  
+  
+  <%= javascript_include_tag "workitemandinput/workitemandinput.js" %>
+  <%= javascript_include_tag "workitemandinput/Utility.js" %>
+  
+  <%= javascript_include_tag "workitemandinput/WorkerObject.js" %>-->
+  
+<% end %>
+
+
+
+<style>
+	/* simple css-based tooltip */
+.tooltip {
+    background-color:#000;
+    border:1px solid #fff;
+    padding:10px 15px;
+    width:auto;
+    display:none;
+    color:#fff;
+    text-align:left;
+    font-size:12px;
+ 
+    /* outline radius for mozilla/firefox only */
+    -moz-box-shadow:0 0 10px #000;
+    -webkit-box-shadow:0 0 10px #000;
+}
+</style>
+
+
+<div class="ui-layout-center" id="centerlayout">
+		<div class="ui-layout-north">
+			<%= render 'workflow_item/user_details' %>
+		</div>
+		<div class="ui-layout-west">
+			<div id="div30" class="eastpanel">
+				<div id="workflow_intro" style="width:250px;">
+					<center>
+						<div id="notifications_header" style="background:#474747;color:white;border:1px solid #B1B1B1;padding:10px;width:120px;">
+								Available workflows
+						</div>
+					</center>
+				</div>
+				
+				 <%= render '/layouts/workflowitemsaccordion' %>
+			</div>
+		</div>
+		<div class="ui-layout-center center-panel" id="rightPanel">
+		
+		
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<button class="mybutton mybuttonsize" id="createnewtool" onclick="createNewTool()">Create New Tool</button>
+				<button class="mybutton mybuttonsize" id="deletetool" onclick="deleteTool()">Delete Tool</button>
+		
+				<div id="createnewtooldiv">
+					<div id="notifications_header" style="background:#474747;color:white;border:1px solid #B1B1B1;padding:10px;width:220px;margin-left:50px;">
+								Create a new workflow item
+						</div>
+						<div style="height:4px"></div>
+					<div style='background:#474747;width:515px;margin-left:50px;'>
+						
+					<div id="tryingToClear" style="display:block;height:1px"></div>
+					
+					<form  action="" class="somebg" id="addworkflowitem">
+			
+							<label  class="field"  class="field" for="name">Name of the workflow item</label>
+							<input type="text" name="name" title="Enter a short name for the tool [Only samtools has been installed on the server]" class="formInputstyle" onchange="showExampleCommand()">
+					
+					
+							<br />
+							<br />
+					
+					
+							<label  class="field"  class="field" >Summary for the workflow item</label>
+							<input type="text" name="summary" title="Enter a short summary for the tool" class="formInputstyle" onchange="showExampleCommand()">
+					
+			
+							<br />
+							<br />
+					
+					
+							<label  class="field"  class="field" >Select/Add category</label>
+							<select name="category" title="Choose <i>Input</i> option for input objects like bam file, sam file, fasta <br><br> Choose <i>Sorter</i> for 
+								tools that Sort the input files<br><br>Tools will appear in the category chosen here"  onchange="populateTextFiled(this)">
+								<option value="">Select Category</option>
+									<% for cat in @categories %>
+									
+										<option value="<%= cat %>" ><%= cat %></option>
+										
+									<% end %>
+							</select>
+					
+							<input id="addcategory" type="text" name="addcategory" class="categoryform" title="Enter the category for the tool" >
+					
+							<br />
+					
+							<br />
+							
+							<label  class="field"   >Select command line format</label>
+							<select name="paramsformat" id="paramsformat" title="Choose the format of the parameters expected by the command line tool" onchange="showExampleCommand()" >
+								<option value="">Select Command line Format</option>
+									
+									<option value="commandformat_1" >-Paramname [space] paramvalue</option>
+									<option value="commandformat_2" >Paramname=paramvalue</option>
+									
+							</select>
+					
+							<br />
+							<br />
+							
+							
+							
+					
+							<fieldset id = "input_fieldset" name="input_stuff" style="padding-bottom:20px;width:435px;">
+									<legend>Input Details</legend>
+									<br>
+									<label  class="field"   class="field" >Number of inputs</label>
+									<select name="inputs" id="noofinputs" onchange="inputCountSelected(this)" title="Select the number of inputs required from the previous tools in the workflow.
+																	Based on the selection, so many input points will be created" onchange="showExampleCommand()">
+										<option value="">Inputs</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+									</select>
+							
+							
+									<!-- CONNECTION VALIDATION IN NEXT STEP -->
+									<!-- FOR NOW JUST ADD THE TOOL TO DATABASE -->
+									<div id="inputs_div">
+										</div>
+							</fieldset>
+							
+					
+							
+							<br />
+					
+					
+							
+							<fieldset id="output_fieldset" name="output_stuff"  style="padding-bottom:20px;width:435px;">
+								<legend>Output Details</legend>
+								<label  class="field"   >Number of outputs</label>
+								<select name="outputs" id="noofoutputs" onchange="outputCountSelected(this)" title="Select the number of outputs produced from this tool in the workflow.
+																	Based on the selection, so many outpoint points will be created" onchange="showExampleCommand()">
+									<option value="">Outputs</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									
+								</select>
+								
+								<div id = "outputs_div">
+											
+									</div>
+									
+							</fieldset>
+			
+					
+					
+							<br />
+					
+					
+			
+							<label  class="field"   class="field" >Executable</label>
+							<input id="executable" type="text" name="executable" class="formInputstyle" title="This is the executable(or script) which will be executed to run this workflow item [Only samtools has been installed on the server, to use other tools, download and install them on the server]. Also provide any default parameters
+							required by the executable. <br> Example : samtools sort" onchange="showExampleCommand()">
+					
+					
+							<br />
+			
+					
+					
+							<fieldset id="parameters" name="parameters" style="width:435px;">
+								<legend>Optional(Form) parameters</legend>
+								
+								<label  class="field"   class="field" >Additional params</label>
+								<select name="formparams" id="noOfFormparams" onchange="addFormParam(this)" title="Select the number of optional parameters. 
+								These are usually special arguments passed on the command line." onchange="showExampleCommand()">
+									<option value="">FormParams</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+								</select>
+								<div id = "asdf_parameters_div">
+											
+									</div>
+									
+								<br />
+								
+								
+								
+							</fieldset>
+							
+							
+							
+							
+							
+							<fieldset name="sample" style="width:435px;">
+								<legend>Generated Command</legend>
+								<label  class="field"   class="field" >Sample command </label>
+								<br><br>
+								<label  style="font-family:courier"  id="sample">executable -default1 -default2  </label>
+								
+							</fieldset>
+					
+					
+				</form>
+					<button name="submit1" onclick="submitTheDocument()" style="background:#474747;color:white;border:1px solid #B1B1B1;padding:10px;width:220px;margin-left:20px;">
+						Create
+						</button>
+					<div style="height:4px"></div>
+				</div>
+					</div>
+					<div id="deletetooldiv" style="margin-left:50px;display:none;">
+						To delete a tool drop it in the box below.
+						It will not be recoverable.
+						<div id="tooldeletor" style="width:200px;height:200px;background:gray;"></div>
+						</div>
+				
+				
+				
+				
+		</div>
+</div>
+				
+
+
+
+	
+	
+
+
+
+
+
+
+

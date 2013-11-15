@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  job_id: MyString
+  work_obj: MyString
+  input_ids: MyString
+  output_ids: MyString
+  jobcontents: MyString
+  notifications: MyString
+  status: 
+  jobname: MyString
+  user_id: MyString
+  didexecute: MyString
+
+two:
+  job_id: MyString
+  work_obj: MyString
+  input_ids: MyString
+  output_ids: MyString
+  jobcontents: MyString
+  notifications: MyString
+  status: 
+  jobname: MyString
+  user_id: MyString
+  didexecute: MyString

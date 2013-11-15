@@ -1,0 +1,66 @@
+
+[X] - the delete icon doesnt appear when restoring jobs
+
+DRAG and DROP icon should change --- Right now it is a FASTA div or something
+
+1. Create a form to add new tools
+
+2. Change job engine to work with any type of tool
+
+3. VALIDATIONS for connections - input type bam file should not be allowed to connect to anything else
+
+4. First Page - Sign In , Description 
+
+5. View Outputs Page - Needs Headers and other decoration stuff
+
+6. Publication !! How How How
+
+
+7. Need to use USER ID in all queries .. Right now I dont know what will happen if two users use simultaneously 
+
+8. Make it work for multiple outputs
+
+
+
+7) The notifications box's resizable handle's location should change
+	http://jsfiddle.net/digitalaxis/aLxjF/
+	
+
+	
+8) Delayed_Job on a different machine
+	http://stackoverflow.com/questions/7592493/use-separate-db-for-delayed-job
+
+
+
+show output on same page
+DONE
+
+show JOB STATUS - somewhere ... right now there is no indication that the job is running or pending or whatever .. need to show that
+DONE	
+	
+	
+disable RUN button when job has already RUN
+DONE
+
+1 ) Need job status 
+	Currently there is individual job's statuses. i.e. sam tools has status, twininput has status. Now, a status is required for the main job.
+	This will help in sending job status to client.
+	-- DID I DO THIS? IF YES, I NEED TO WRITE IT HERE
+	
+	DONE
+
+
+
+
+3) Restore needs to be fixed a little ... See, if widget1, 2 and 5 have been restored, then the workflow will think that widget1, 2 and 3 have been repalced.
+	Later on it will generate widget5 as id and this will crash !!
+	DONE - CHANGED IDs to timestamp  
+
+
+
+
+RESTORE - the job should show up on left side
+DONE
+
+RESTORE - this job should be usable with currently existing widgets -- STEP 2
+DONE

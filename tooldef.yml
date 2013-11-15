@@ -1,0 +1,24 @@
+Tool:
+  name:SortsSamTools
+  summary:Sorts Sam Tools
+  Category:Pigeon
+  commandformat:nameequaltovalue
+  inputs:
+    number:4
+    type:bamfile
+    parameter:
+    label:required for sorting
+    type:bamfile
+    parameter:
+    label:required for sorting
+  outputs:
+    number:1
+    type:bamfile
+    parameter:
+    label:sorted bam file
+  formparams:
+    number:1
+    type:bamfile
+    parameter:
+    label:sorted bam file
+  executable:samtools sort

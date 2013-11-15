@@ -1,0 +1,9 @@
+lab_bam_base_dir: /Users/pashwin/Documents/workspacesFromApr9/workflow/workflowinruby/rubyJuly30/GITREPO
+home_bam_base_dir: /Users/ashwin/Documents/workspaces/rubysource/Workflow/
+Xbam_base_dir: /Users/ashwin/Documents/workspaces/rubysource/Workflow/
+Ybam_base_dir: /Users/pashwin/Documents/workspacesFromApr9/workflow/workflowinruby/rubyJuly30/GITREPO
+bam_base_dir: /srv/www/vhosts/bioflow.vbi.vt.edu/htdocs/public/files
+#Example
+#Servers: ['pharen', 'bench', 'thisNthat']
+Servers: []
+
